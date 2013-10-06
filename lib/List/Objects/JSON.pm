@@ -53,6 +53,8 @@ C<TO_JSON> method, but I found myself frequently typing something like:
   my $data  = $json->decode($foo);
   my $array = array(@$data);
 
+... when I really just wanted the object representation all the time.
+
 A subclass can override C<_decode_listobj_array> and C<_decode_listobj_hash>
 appropriately to produce other object types. For example:
 
