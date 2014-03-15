@@ -7,7 +7,7 @@ use List::Objects::WithUtils 2;
 my $js = List::Objects::JSON->new;
 
 {
-  my $array = array( 1 .. 3 );
+  my $array = array( 1 .. 3, array(4,5) );
   my $json  = $js->encode($array);
   my $back  = $js->decode($json);
   is_deeply
@@ -17,7 +17,7 @@ my $js = List::Objects::JSON->new;
 }
 
 {
-  my $hash = hash( foo => 1, bar => 2 );
+  my $hash = hash( foo => 1, bar => hash(baz => 1) );
   my $json = $js->encode($hash);
   my $back = $js->decode($json);
   is_deeply

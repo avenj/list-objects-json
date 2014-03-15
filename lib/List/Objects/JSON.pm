@@ -33,19 +33,15 @@ List::Objects::JSON - Wrap List::Objects::WithUtils around JSON::Tiny
   my $js = List::Objects::JSON->new;
 
   my $data  = array(qw/ foo bar baz /);
-
   my $bytes = $js->encode( $data->grep(sub { /^b/ }) );
-
   my $array = $js->decode($bytes);
   my $count = $array->count;  # 2
 
-
 =head1 DESCRIPTION
 
-This is a trivial wrapper around L<JSON::Tiny> and
-L<List::Objects::WithUtils>, providing a JSON interface that produces
-L<List::Objects::WithUtils> B<array> and B<hash> objects when deserializing
-data.
+This is a trivial subclass of L<JSON::Tiny>; it provides a C<decode> method
+that produces L<List::Objects::WithUtils> B<array> and B<hash> objects when
+deserializing data.
 
 L<List::Objects::WithUtils> provides transparent serialization support via a
 C<TO_JSON> method, but I found myself frequently typing something like:
